@@ -129,10 +129,10 @@ dataset_base = Config({
 
 project3_strawberry_dataset = dataset_base.copy({
     'name': 'Project 3 - Strawberry Diseases.',
-    'train_info': '/content/annotations/train/dataset.json',
-    'train_images': '/content/train',
-    'valid_info': '/content/annotations/val/dataset.json',
-    'valid_images': '/content/val',
+    'train_info': '../annotations/train/dataset.json',
+    'train_images': '../train',
+    'valid_info': '../annotations/val/dataset.json',
+    'valid_images': '../val',
     'class_names': ('Powdery Mildew Leaf', 'Leaf Spot', 'Angular Leafspot', 'Powdery Mildew Fruit', 'Gray Mold', 'Anthracnose Fruit Rot', 'Blossom Blight'),
     'label_map': {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7}
 })
