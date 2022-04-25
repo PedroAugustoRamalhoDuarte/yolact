@@ -104,7 +104,6 @@ class Config(object):
 
 
 # ----------------------- DATASETS ----------------------- #
-
 dataset_base = Config({
     'name': 'Base Dataset',
 
@@ -126,6 +125,16 @@ dataset_base = Config({
     # provide a map from category_id -> index in class_names + 1 (the +1 is there because it's 1-indexed).
     # If not specified, this just assumes category ids start at 1 and increase sequentially.
     'label_map': None
+})
+
+project3_strawberry_dataset = dataset_base.copy({
+    'name': 'Project 3 - Strawberry Diseases.',
+    'train_info': '/content/annotations/train/dataset.json',
+    'train_images': '/content/train',
+    'valid_info': '/content/annotations/val/dataset.json',
+    'valid_images': '/content/val',
+    'class_names': ('powdery_mildew_leaf', 'leaf_spot', 'angular_leafspot', 'powdery_mildew_fruit' 'gray_mold', 'anthracnose_fruit_rot', 'blossom_blight'),
+    'label_map': {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 7}
 })
 
 coco2014_dataset = dataset_base.copy({
@@ -805,6 +814,12 @@ yolact_plus_resnet50_config = yolact_plus_base_config.copy({
     }),
 })
 
+yolact_project3_strawberry_config = yolact_plus_resnet50_config.copy({
+    'name': 'yolact_project3_strawberry',
+    'dataset': project3_strawberry_dataset,
+    'num_classes': len(project3_strawberry_dataset.class_names) + 1,
+    'max_size': 512,
+})
 
 # Default config
 cfg = yolact_base_config.copy()
